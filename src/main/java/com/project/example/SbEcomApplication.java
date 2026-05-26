@@ -11,3 +11,5 @@ public class SbEcomApplication {
 	}
 
 }
+
+//  ./mvnw package command is used to make an application into jar(created at target folder) we used that jar to upload in elastic beanstalk
