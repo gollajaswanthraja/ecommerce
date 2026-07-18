@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
-      - "5435:5435"
+      - "5432:5432"
 
   springboot-app:
     build: .
@@ -19,6 +19,6 @@ services:
     ports:
       - "8082:8082"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5435/ecommerce
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ecommerce
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgres
