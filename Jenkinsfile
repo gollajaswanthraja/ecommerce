@@ -8,8 +8,8 @@ pipeline {
     environment {
         //IMAGE_NAME = 'gollajaswanthraja/jenkins-app'
         IMAGE_NAME = 'ecommerce-app'
-        //IMAGE_TAG = "${BUILD_NUMBER}"
-        IMAGE_TAG = "1.0"
+        IMAGE_TAG = "${BUILD_NUMBER}"
+        //IMAGE_TAG = "1.0"
     }
 
     stages {
@@ -58,7 +58,7 @@ pipeline {
 
         stage('Run Docker Container') {
             steps {
-                bat 'docker build -t sb-ecommerce:1.0 .'
+                bat 'docker build -t %IMAGE_NAME%:%IMAGE_TAG% .'
                 bat 'docker stop ecom-container ||  ver > nul'
                 bat 'docker rm ecom-container ||  ver > nul'
                 bat 'docker run -d --name ecom-container -p 8080:8080 %IMAGE_NAME%:%IMAGE_TAG%'
