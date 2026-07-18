@@ -61,7 +61,7 @@ pipeline {
                 bat 'docker build -t jenkins-app2:1.0 .'
                 bat 'docker stop springboot-container ||  ver > nul'
                 bat 'docker rm springboot-container ||  ver > nul'
-                bat 'docker run -d --name ecom-container -p 8081:8081 %IMAGE_NAME%:%IMAGE_TAG%'
+                bat 'docker run -d --name ecom-container -p 8080:8080 %IMAGE_NAME%:%IMAGE_TAG%'
             }
         }
 
