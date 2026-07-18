@@ -61,7 +61,7 @@ pipeline {
                 bat 'docker build -t %IMAGE_NAME%:%IMAGE_TAG% .'
                 bat 'docker stop ecom-container ||  ver > nul'
                 bat 'docker rm ecom-container ||  ver > nul'
-                bat 'docker run -d --name ecom-container -p 8080:8080 %IMAGE_NAME%:%IMAGE_TAG%'
+                bat 'docker run -d --name ecom-container -p 8082:8082 %IMAGE_NAME%:%IMAGE_TAG%'
             }
         }
 
