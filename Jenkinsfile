@@ -58,7 +58,7 @@ pipeline {
 
         stage('Run Docker Container') {
             steps {
-                bat 'docker build -t jenkins-app2:1.0 .'
+                bat 'docker build -t sb-ecommerce:1.0 .'
                 bat 'docker stop ecom-container ||  ver > nul'
                 bat 'docker rm ecom-container ||  ver > nul'
                 bat 'docker run -d --name ecom-container -p 8080:8080 %IMAGE_NAME%:%IMAGE_TAG%'
