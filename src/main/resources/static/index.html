@@ -1,0 +1,78 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Shopping Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>🛒 AI Shopping Assistant</h2>
+
+    <textarea id="question"
+              placeholder="Ask anything..."></textarea>
+
+    <br>
+
+    <button onclick="askAI()">Ask AI</button>
+
+    <h3>Answer</h3>
+
+    <div id="answer"></div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Shopping Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🛒 AI Shopping Assistant</h1>
+
+    <div class="chat-box" id="chatBox">
+
+        <div class="bot-message">
+            👋 Hello! Ask me about products.
+            <br><br>
+
+            Examples:
+            <ul>
+                <li>Recommend laptops under ₹50000</li>
+                <li>Show Samsung mobiles</li>
+                <li>Need a gaming laptop</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="input-box">
+
+        <input
+                type="text"
+                id="question"
+                placeholder="Ask AI about products...">
+
+        <button onclick="askAI()">
+            Send
+        </button>
+
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
