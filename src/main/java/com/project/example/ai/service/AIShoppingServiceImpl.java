@@ -1,5 +1,6 @@
 package com.project.example.ai.service;
 
+
 import com.project.example.ai.dto.ProductFilter;
 import com.project.example.ai.prompt.PromptBuilder;
 import com.project.example.model.Product;
@@ -13,14 +14,16 @@ public class AIShoppingServiceImpl implements AIShoppingService {
 
     private final ChatService chatService;
     private final AIFilterExtractor filterExtractor;
+    private final ConversationService conversationService;
     private final CategoryResolver categoryResolver;
     private final ProductSearchService productSearchService;
     private final PromptBuilder promptBuilder;
 
-    public AIShoppingServiceImpl( ChatService chatService,
-                                 AIFilterExtractor filterExtractor, CategoryResolver categoryResolver, ProductSearchService productSearchService, PromptBuilder promptBuilder) {
+    public AIShoppingServiceImpl(ChatService chatService,
+                                 AIFilterExtractor filterExtractor, ConversationService conversationService, CategoryResolver categoryResolver, ProductSearchService productSearchService, PromptBuilder promptBuilder) {
         this.chatService = chatService;
         this.filterExtractor = filterExtractor;
+        this.conversationService = conversationService;
         this.categoryResolver = categoryResolver;
         this.productSearchService = productSearchService;
         this.promptBuilder = promptBuilder;
@@ -35,6 +38,7 @@ public class AIShoppingServiceImpl implements AIShoppingService {
                 productSearchService.search(filter);
 
 
+
         if (products.isEmpty()) {
 
             return "No matching products found.";
@@ -46,6 +50,9 @@ public class AIShoppingServiceImpl implements AIShoppingService {
                 products
         );
 
-        return chatService.ask(prompt);
+        return chatService.ask(
+                prompt,
+                conversationService.getConversationId()
+        );
     }
 }
